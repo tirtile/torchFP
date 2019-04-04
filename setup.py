@@ -1,29 +1,15 @@
-#!/usr/bin/env python
-# coding=utf-8
+# coding:utf-8
 
 from setuptools import setup
-
-'''
-把redis服务打包成C:\Python27\Scripts下的exe文件
-'''
+# or
+# from distutils.core import setup  
 
 setup(
-    name="torchfp",
-    version="1.0",
-    author="tirtile",
-    author_email='2062898603@qq.com',
-    description=("FLOPs and parameters calculation tool for pytorch model"),
-    license="MIT",
-    url="https://github.com/tirtile/torchFP/",
-
-    # Package info
-    packages=find_packages(exclude=('*test*',)),
-    #
-    zip_safe=True,
-    install_requires=requirements,
-
-    # Classifiers
-    classifiers=[
-        'Programming Language :: Python :: 3',
-    ],
+        name='torchfp',     # 包名字
+        version='1.0',   # 包版本
+        description='This is a parameter and FLOPs calculation tools for pytorch model',   # 简单描述
+        author='tty',  # 作者
+        author_email='2062898603@qq.com',  # 作者邮箱
+        url='https://github.com/tirtile/torchFP/',      # 包的主页
+        packages=['torchFP'],                 # 包
 )
