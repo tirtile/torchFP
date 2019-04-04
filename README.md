@@ -7,5 +7,5 @@ from torchvision.models import resnet18
 from coreOperator import get_params, get_flops
 
 model = resnet18()
-print(get_params(model,types="G"), get_flops(model, types="G"))
+print(get_params(model,input_size=(1,3,64,64),types="G"), get_flops(model, types="G"))
 ```
