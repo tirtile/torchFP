@@ -31,13 +31,6 @@ def flops_route(module):
     else:
         print("coming soon...")
         return None
-
-# hooks_exist = {nn.Conv2d:conv2d_flops,
-#                 nn.BatchNorm2d:bn2d_flops,
-#                 nn.ReLU:relu_flops,
-#                 nn.PReLU:relu_flops,
-#                 nn.Linear:linear_flops,
-#                 nn.MaxPool2d:maxpool_flops }
                 
 def register_hooks(module):
     if(len(list(module.children())))>0:
@@ -45,9 +38,6 @@ def register_hooks(module):
     module.register_buffer('FLOPs', torch.zeros(1).long())
     module_type = type(module)
     fn = flops_route(module_type)
-    # print(module_type)
-    # if module_type in hooks_exist:
-    #     fn = hooks_exist[module_type]
     if fn is not None:
         handler = module.register_forward_hook(fn)
         handler_collection.append(handler)
